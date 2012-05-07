@@ -1,4 +1,4 @@
-*** Gmail2Gcal
+* Gmail2Gcal
 Gmail2Gcal allows you to convert [[http://bit.ly/IQM5AK][Gmail]] mail messages into [[http://bit.ly/IQNmYx][Gcal]] events. The events can simply be used to keep a timeline of emails or you can set a reminder on the events to notify you of the email via you calendar notification mechanism. This is particularly useful if you have a smartphone that synchronizes with your Gcal calendars.
 
 ** See A Live Demo
@@ -10,8 +10,8 @@ Shortly after you send the email you will receive a reply that will tell you how
 
 I ask that you do not use this email for spamming or other inappropriate activities. If that happens I will be forced to shut down the live demo.
 
-** Installation
-*** TODO Installation Requirements
+* Installation
+** TODO Installation Requirements
 - A Gmail and Gcal account.
 - This has been written and tested under [[http://bit.ly/KfxHFQ][Ubuntu 10.4]] Linux. It should work on other operating systems but [[http://bit.ly/Kfy0R4][YMMV]]. If you are on [[http://bit.ly/II1ozK][Windows]], my advice is that you to upgrade to [[http://bit.ly/II1rvz][Linux]]. If you can't or just plain won't upgrade to Linux, installing [[http://bit.ly/II16ce][Cygwin]] should allow a successful installation of Gmail2Gcal. Once again, YMMV. TODO: Find out of IMAPFilter runs on Windows.
 - Either a working [[http://bit.ly/Kfyu9Z][crontab]] system or another mechanism to execute IMAPFilter at regular time intervals. It should be possible, and possibly more efficient, to use IMAPFilter's "become_daemon" command to schedule execution of Gmail2Gcal. I did not do this as I found using a cron job easier than using "become_daemon". See [[https://github.com/lefcha/imapfilter/blob/master/samples/extend.lua][extend.lua]] in IMAPFilter's repository for an example of "become_daemon". Contributions in this area would be most appreciated.
@@ -20,35 +20,35 @@ I ask that you do not use this email for spamming or other inappropriate activit
 - If you will be setting reminders with Gmail2Gcal, it is preferable to install Gmail2Gcal on a computer that is permanently connected to the internet.
 - Familiarity with Gmail [[http://bit.ly/Lx0qYS][labels]] and [[http://bit.ly/Lx0qYS][filters]].
 
-*** Installation Process
+** Installation Process
 While no step is complex, there are several steps required to install Gmail2Gcal. Skipping any step will likely leave you with a non-working installation.
 
-***** Installing Bash (likely only for Windows users)
+**** Installing Bash (likely only for Windows users)
 1) If you don't bash installed, install [[http://bit.ly/II16ce][Cygwin]] if you are on Windows or directly install bash from its [[http://bit.ly/JbQmzE][homepage]].
 
-***** Install GoogleCL 
+**** Install GoogleCL 
 1. Follow the [[http://bit.ly/IHZT4E][documentation]] for installing GoogleCL.
 
-***** TODO Gmail Setup
+**** TODO Gmail Setup
 1. Make sure you have a [[http://bit.ly/IQM5AK][Gmail]] account.
 1. Create a new label in Gmail that you will use for emails that you want to have processed by Gmail2Gcal. I recommend the label /_Gmail2Gcal/ though you can choose a different one. I use the leading underscore (_) to cause the label to appear near the top of Gmail's label list.
 1. Configure filters *TODO*
 
-***** Gcal Setup
+**** Gcal Setup
 1. Make sure that you have a [[http://bit.ly/IQNmYx][Gcal]] account.
 1. If you wish to use a calendar other than your default Gcal calendar for Gmail2Gcal events, create that calendar in Gcal. I use a calendar name /Reminders/ though that is just my personal choice.
 1. If you have created a calendar in the previous step, edit the /gmail2gcal/ shell script and follow the directions at the top of the file for specifying which calendar should be used.
 
-***** TODO Installing IMAPFilter
+**** TODO Installing IMAPFilter
 1. *TODO*
 
-***** TODO Configuring IMAPFilter
+**** TODO Configuring IMAPFilter
 1. *TODO*
 
-***** TODO Configuring Cron
+**** TODO Configuring Cron
 1. *TODO*
 
-*** TODO Support
+* TODO Support
 1. *TODO*
 
 *** Licensing
