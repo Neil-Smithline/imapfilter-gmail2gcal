@@ -8,9 +8,8 @@ To use the live demo, simply send an email to [[mailto:gmail2gcalDELETE-THESE-LE
 
 Shortly after you send the email you will receive a reply that will tell you how to view your newly created Gcal event.
 
-I ask that you do not use this email for spamming or other inappropriate activities. If that happens I will be forced to shut down the live demo.
+I ask that you do not use this email for spam or other inappropriate activities. If that happens I will be forced to shut down the live demo.
 
-* Installation
 ** TODO Installation Requirements
 - A Gmail and Gcal account.
 - This has been written and tested under [[http://bit.ly/KfxHFQ][Ubuntu 10.4]] Linux. It should work on other operating systems but [[http://bit.ly/Kfy0R4][YMMV]]. If you are on [[http://bit.ly/II1ozK][Windows]], my advice is that you to upgrade to [[http://bit.ly/II1rvz][Linux]]. If you can't or just plain won't upgrade to Linux, installing [[http://bit.ly/II16ce][Cygwin]] should allow a successful installation of Gmail2Gcal. Once again, YMMV. TODO: Find out of IMAPFilter runs on Windows.
@@ -48,10 +47,10 @@ While no step is complex, there are several steps required to install Gmail2Gcal
 **** TODO Configuring Cron
 1. *TODO*
 
-* TODO Support
+*** TODO Support
 1. *TODO*
 
-* Licensing
+*** Licensing
 
 [[http://i.creativecommons.org/l/by-sa/3.0/88x31.png]]
 
