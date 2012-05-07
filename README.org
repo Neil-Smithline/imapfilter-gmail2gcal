@@ -2,7 +2,7 @@
 Gmail2Gcal allows you to convert [[http://bit.ly/IQM5AK][Gmail]] mail messages into [[http://bit.ly/IQNmYx][Gcal]] events. The events can simply be used to keep a timeline of emails or you can set a reminder on the events to notify you of the email via you calendar notification mechanism. This is particularly useful if you have a smartphone that synchronizes with your Gcal calendars.
 
 ** See A Live Demo
-Assuming that I haven't broken anything, there is a live demo of Gmail2Gcal that you can play around with. All I ask is that you be forgiving if you run into any problems. This is running in my personal Gmail and Gcal account and using my personal [[http://bit.ly/J9L3m9][VPS]] Linux box which has a rather small data limitation.
+Assuming that I haven't broken anything, there is a live demo of Gmail2Gcal that you can play around with. All I ask is that you be forgiving if you run into any problems. This using my personal Gmail and Gcal account and using my personal [[http://bit.ly/J9L3m9][VPS]] Linux box which has a rather small data limitation.
 
 To use the live demo, simply send an email to [[mailto:gmail2gcalDELETE-THESE-LETTERS@neilsmithline.com][gmail2gcal-DELETE-THESE-LETTERS@neilsmithline.com]]. While the body of the message can be empty, the subject of the email will be used as the title of the calendar event. I recommend adding a subject that is more unique than /test/. 
 
@@ -51,7 +51,7 @@ While no step is complex, there are several steps required to install Gmail2Gcal
 * TODO Support
 1. *TODO*
 
-*** Licensing
+* Licensing
 
 [[http://i.creativecommons.org/l/by-sa/3.0/88x31.png]]
 
