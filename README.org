@@ -47,10 +47,10 @@ While no step is complex, there are several steps required to install Gmail2Gcal
 **** TODO Configuring Cron
 1. *TODO*
 
-*** TODO Support
+** TODO Support
 1. *TODO*
 
-*** Licensing
+** Licensing
 
 [[http://i.creativecommons.org/l/by-sa/3.0/88x31.png]]
 
