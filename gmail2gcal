@@ -1,0 +1,41 @@
+#!/bin/sh
+
+# By default, Gmail2Gcal will add events to your default calendar. If
+# you wish to use another calendar, remove the pound sign (#) from the
+# beginning of the line line below and insert your calendar name in
+# the line.
+
+# CALENDAR="--cal=YOUR-CALENDAR-NAME-HERE"      # <=== Set calendar name here
+
+#######################################################################
+# What follows is the actual code and internal documentation. It is
+# not required to read further to install Gmail2Gcal.
+#######################################################################
+
+# The Gmail API has a peculiar bug that prevents alarms from being set
+# via the natural language interface that is used by the GoogleCL
+# command. After much exerimentation, I discovered a workaround.
+#
+# It seems that the CLI event creation puts an inactive reminder in
+# the event. Visiting the event on the web will activate the reminder
+# but that is not an automated process.
+# 
+# To automate the process, we create the event, extracting the event's
+# URL from the CLI's output, and then we access the URL via a wget.
+# 
+# Don't ask me to explain this. Complain to Google. All I know is that it works.
+
+(
+    url=$(google calendar --reminder=0m "$CALENDAR" add "$*" 2>&1 > /dev/null | sed 's/Event created: //')
+
+    wget -O /dev/null "$url"
+
+) 2>&1 > /dev/null
+
+########################################################################
+## Gmail2Gcal for IMAPFilter by Neil Smithline is licensed under a
+## Creative Commons Attribution#ShareAlike 3.0 Unported License.
+##
+## See https://github.com/Neil#Smithline/imapfilter#gmail2gcal for
+## more details.
+########################################################################
