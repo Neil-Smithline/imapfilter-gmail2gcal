@@ -7,13 +7,13 @@ While there are existing email notification mechanisms, I have found them all to
 1. Computer and bandwidth resource constraints when I try to filter the full text of every email, using [[http://bit.ly/K7YGFi][procmail]] or a similar, client-side filtering technology.
 1. Inability to create adequate filters if I force my client-side filtering to only use the email headers without access to the email body.
 
-Even if I implement the perfect filtering system, I am left with one problem that effectively renders exist email notification useless for me: Email notifications are not persistent. Either they beep once and then they are quiet or they beep every 5 or so minutes. One notification is not enough for me and endless notifications just overloads me.
+Even if I implement the perfect filtering system, I am left with one problem that effectively renders exist email notification useless for me: Email notifications are not persistent. Either they beep once and then they are quiet or they beep every 5 or so minutes. One notification is not enough for me and endless notifications overloads me.
 
-What Gmail2Gcal provides is a means of connecting Gmail's reasonably functional and free filtering functionality to Gcal. While notifications for email are weak, there are many apps that provide rich notification mechanisms adding features such as snooze, nags, toast notifications, etc...
+What Gmail2Gcal provides is a means of connecting Gmail's reasonably functional and free filtering functionality to Gcal. It utilizes the fact that while notifications for email are weak, notifications for calendar events include rich functionality such as snooze, nags, toast notifications, etc...
 
-By offloading the heavy lifting to Google's email, filtering, and calendaring services and offloading most of the notification functionality to my Android smartphone, Gmail2Gcal provides high functionality with low resource cost. In fact, the resource cost is so low that I have a live demo up and running for anyone to play around with.
+By offloading the heavy lifting to Google's email, filtering, and calendaring services and offloading the notification functionality to my Android smartphone, Gmail2Gcal provides high functionality with low resource utilization. In fact, the resource cost is so low that I have a live demo up and running for anyone to play around with.
 
-One thing that Gmail2Gcal is not and doesn't try to be is a means of managing your own calendar via email. There already exist many applications that provide such functionality. Besides, I don't find that I have the need for such functionality useful.
+I should mention that Gmail2Gcal is not, nor does it try to be, a means of managing your calendar via email. There already exist many strategies that provide such functionality. Besides, personally, I don't find that I utilize such functionality useful.
 
 ** See A Live Demo
 Assuming that I haven't broken anything, there is a live demo of Gmail2Gcal that you can play around with. All I ask is that you be forgiving if you run into any problems. This is using my personal Gmail and Gcal account and my personal [[http://bit.ly/J9L3m9][VPS]] Linux box which has a rather small bandwidth capacity.
