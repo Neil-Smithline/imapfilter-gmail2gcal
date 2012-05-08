@@ -1,19 +1,38 @@
 * Gmail2Gcal
-Gmail2Gcal allows you to convert [[http://bit.ly/IQM5AK][Gmail]] mail messages into [[http://bit.ly/IQNmYx][Gcal]] events. The events can simply be used to keep a timeline of emails or you can set a reminder on the events to notify you of the email via you calendar notification mechanism. This is particularly useful if you have a smartphone that synchronizes with your Gcal calendars.
+Gmail2Gcal is an enhanced Gmail notification system. It allows you to easily filter [[http://bit.ly/IQM5AK][Gmail]] messages and turn the important ones into [[http://bit.ly/IQNmYx][Gcal]] events. Gmail2Gcal leaves the filtering of emails and the notification of calendar events to already existing strategies.
+
+While there are existing email notification mechanisms, I have found them all to be lacking. The problems I've encountered are:
+1. Too many notifications to be useful if I receive a notification on every inbound email.
+2. Too few and unpredictable notifications when I rely on smart filtering systems such as Gmail's [[http://bit.ly/Lx0qYS][importance rankings]].
+1. Computer and bandwidth resource constraints when I try to filter the full text of every email, using [[http://bit.ly/K7YGFi][procmail]] or a similar, client-side filtering technology.
+1. Inability to create adequate filters if I force my client-side filtering to only use the email headers without access to the email body.
+
+Even if I implement the perfect filtering system, I am left with one problem that effectively renders email notification useless: Email notifications are not persistent. Either they beep once and then they are quiet or they beep every 5 or so minutes. 
+
+What Gmail2Gcal provides is a means of connecting Gmail's reasonably functional and free filtering functionality to Gcal. While notifications for email are weak, there are many apps that provide rich notification mechanisms adding features such as snooze, nags, toast notifications, etc...
+
+By offloading the heavy lifting to Google's email, filtering, and calendaring services and offloading most of the notification functionality to my Android smartphone, Gmail2Gcal provides high functionality with low resource cost. In fact, the resource cost is so low that I have a live demo up and running for anyone to play around with.
+
+One thing that Gmail2Gcal is not and doesn't try to be is a means of managing your own calendar via email. There already exist many applications that provide such functionality. Besides, I don't find that I have the need for such functionality useful.
 
 ** See A Live Demo
-Assuming that I haven't broken anything, there is a live demo of Gmail2Gcal that you can play around with. All I ask is that you be forgiving if you run into any problems. This using my personal Gmail and Gcal account and using my personal [[http://bit.ly/J9L3m9][VPS]] Linux box which has a rather small data limitation.
+Assuming that I haven't broken anything, there is a live demo of Gmail2Gcal that you can play around with. All I ask is that you be forgiving if you run into any problems. This is using my personal Gmail and Gcal account and my personal [[http://bit.ly/J9L3m9][VPS]] Linux box which has a rather small bandwidth capacity.
 
 To use the live demo, simply send an email to [[mailto:gmail2gcalDELETE-THESE-LETTERS@neilsmithline.com][gmail2gcal-DELETE-THESE-LETTERS@neilsmithline.com]]. While the body of the message can be empty, the subject of the email will be used as the title of the calendar event. I recommend adding a subject that is more unique than /test/. 
 
 Shortly after you send the email you will receive a reply that will tell you how to view your newly created Gcal event.
 
+For this demo I have disabled notifications because, being that it is my Gcal, I would be the person getting the notifications rather than you. The code in this repository includes support for notifications.
+
 I ask that you do not use this email for spam or other inappropriate activities. If that happens I will be forced to shut down the live demo.
 
 ** TODO Installation Requirements
+:PROPERTIES:
+:ID: C4A3057B-CF3F-40C2-A78E-DF87DC8914D6
+:END:
 - A Gmail and Gcal account.
-- This has been written and tested under [[http://bit.ly/KfxHFQ][Ubuntu 10.4]] Linux. It should work on other operating systems but [[http://bit.ly/Kfy0R4][YMMV]]. If you are on [[http://bit.ly/II1ozK][Windows]], my advice is that you to upgrade to [[http://bit.ly/II1rvz][Linux]]. If you can't or just plain won't upgrade to Linux, installing [[http://bit.ly/II16ce][Cygwin]] should allow a successful installation of Gmail2Gcal. Once again, YMMV. TODO: Find out of IMAPFilter runs on Windows.
-- Either a working [[http://bit.ly/Kfyu9Z][crontab]] system or another mechanism to execute IMAPFilter at regular time intervals. It should be possible, and possibly more efficient, to use IMAPFilter's "become_daemon" command to schedule execution of Gmail2Gcal. I did not do this as I found using a cron job easier than using "become_daemon". See [[https://github.com/lefcha/imapfilter/blob/master/samples/extend.lua][extend.lua]] in IMAPFilter's repository for an example of "become_daemon". Contributions in this area would be most appreciated.
+- This has been written and tested under [[http://bit.ly/KfxHFQ][Ubuntu 10.4]] Linux. It should work on other operating systems but [[http://bit.ly/Kfy0R4][YMMV]]. If you are on [[http://bit.ly/II1ozK][Windows]], my advice is that you to upgrade to [[http://bit.ly/II1rvz][Linux]]. If you can't or just plain won't upgrade to Linux, installing [[http://bit.ly/II16ce][Cygwin]] should allow a successful installation of Gmail2Gcal. Once again, YMMV. *TODO*: Find out of IMAPFilter runs on Windows.
+- Either a working [[http://bit.ly/Kfyu9Z][crontab]] system or another mechanism to execute IMAPFilter at regular time intervals. It should be possible, and possibly more efficient, to use IMAPFilter's "become\_daemon" command to schedule execution of Gmail2Gcal. I did not do this as I found using a cron job easier than using "become\_daemon". See [[https://github.com/lefcha/imapfilter/blob/master/samples/extend.lua][extend.lua]] in IMAPFilter's repository for an example of "become\_daemon". Contributions in this area would be most appreciated.
 - Installation of the [[http://bit.ly/IHZM9l][GoogleCL]] Google Command Line interface program. Installation is well [[http://bit.ly/IHZT4E][documented]] and relatively straightforward. GoogleCL is supported on most operating systems.
 - Either a [[http://bit.ly/II0Tpm][bash]] shell or perhaps an [[http://bit.ly/IHZT4E][sh]] shell. Note that this has not been tested with an sh shell.
 - If you will be setting reminders with Gmail2Gcal, it is preferable to install Gmail2Gcal on a computer that is permanently connected to the internet.
@@ -29,6 +48,9 @@ While no step is complex, there are several steps required to install Gmail2Gcal
 1. Follow the [[http://bit.ly/IHZT4E][documentation]] for installing GoogleCL.
 
 **** TODO Gmail Setup
+:PROPERTIES:
+:ID: FB8804D1-65ED-4C00-BD4C-211FB5DE8FF4
+:END:
 1. Make sure you have a [[http://bit.ly/IQM5AK][Gmail]] account.
 1. Create a new label in Gmail that you will use for emails that you want to have processed by Gmail2Gcal. I recommend the label /_Gmail2Gcal/ though you can choose a different one. I use the leading underscore (_) to cause the label to appear near the top of Gmail's label list.
 1. Configure filters *TODO*
@@ -39,19 +61,35 @@ While no step is complex, there are several steps required to install Gmail2Gcal
 1. If you have created a calendar in the previous step, edit the /gmail2gcal/ shell script and follow the directions at the top of the file for specifying which calendar should be used.
 
 **** TODO Installing IMAPFilter
+:PROPERTIES:
+:ID: B4167521-9E8F-4DD5-8E82-A481A281F112
+:END:
 1. *TODO*
 
 **** TODO Configuring IMAPFilter
+:PROPERTIES:
+:ID: 6F838A34-4985-4207-87FD-5B6558510BF7
+:END:
 1. *TODO*
 
 **** TODO Configuring Cron
+:PROPERTIES:
+:ID: C1007C58-DC4A-4272-93C9-0DC7735150E3
+:END:
 1. *TODO*
 
 ** TODO Support
+:PROPERTIES:
+:ID: 5F82C5BE-638B-47EB-AEF3-4004270D6E1B
+:END:
 1. *TODO*
 
 ** Licensing
 
-[[http://i.creativecommons.org/l/by-sa/3.0/88x31.png]]
+#+ATTR_HTML: rel="license" alt=
+[[http://creativecommons.org/licenses/by-sa/3.0/][[[http://i.creativecommons.org/l/by-sa/3.0/88x31.png]]]]
 
 Gmail2Gcal by [[http://bit.ly/yGGszW][Neil Smithline]] is licensed under a [[http://bit.ly/JXHIWg][Creative Commons Attribution-ShareAlike 3.0 Unported License]].
+
+
+<a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-sa/3.0/88x31.png" /></a><br /><span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type">Gmail Configuration Sample for IMAPFilter</span> by <a xmlns:cc="http://creativecommons.org/ns#" href="http://www.neilsmithline.com" property="cc:attributionName" rel="cc:attributionURL">Neil Smithline</a> is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/">Creative Commons Attribution-ShareAlike 3.0 Unported License</a>.
