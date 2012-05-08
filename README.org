@@ -7,7 +7,7 @@ While there are existing email notification mechanisms, I have found them all to
 1. Computer and bandwidth resource constraints when I try to filter the full text of every email, using [[http://bit.ly/K7YGFi][procmail]] or a similar, client-side filtering technology.
 1. Inability to create adequate filters if I force my client-side filtering to only use the email headers without access to the email body.
 
-Even if I implement the perfect filtering system, I am left with one problem that effectively renders email notification useless: Email notifications are not persistent. Either they beep once and then they are quiet or they beep every 5 or so minutes. 
+Even if I implement the perfect filtering system, I am left with one problem that effectively renders exist email notification useless for me: Email notifications are not persistent. Either they beep once and then they are quiet or they beep every 5 or so minutes. One notification is not enough for me and endless notifications just overloads me.
 
 What Gmail2Gcal provides is a means of connecting Gmail's reasonably functional and free filtering functionality to Gcal. While notifications for email are weak, there are many apps that provide rich notification mechanisms adding features such as snooze, nags, toast notifications, etc...
 
