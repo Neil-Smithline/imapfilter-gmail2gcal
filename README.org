@@ -86,7 +86,7 @@ While no step is complex, there are several steps required to install Gmail2Gcal
 
 ** Licensing
 
-[[[http://i.creativecommons.org/l/by-sa/3.0/88x31.png]]]
+[[http://i.creativecommons.org/l/by-sa/3.0/88x31.png]]
 
 Gmail2Gcal by [[http://bit.ly/yGGszW][Neil Smithline]] is licensed under a [[http://bit.ly/JXHIWg][Creative Commons Attribution-ShareAlike 3.0 Unported License]].
 
